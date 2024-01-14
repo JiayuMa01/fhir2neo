@@ -60,7 +60,7 @@ if __name__ == '__main__':
         print("----------------------------------------------------")
 
         cnt += 1
-        if cnt >= 6:
+        if cnt >= 2:
             break
 
     driver.close()
