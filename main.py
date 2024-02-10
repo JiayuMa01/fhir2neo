@@ -21,6 +21,7 @@ def read_all_json_files(json_folder_path):
         if json_file.endswith(".json"):
             json_path = json_folder_path + "/" + json_file
             json_path_list.append(json_path)
+    json_path_list.sort()
     return json_path_list
 
 
@@ -43,11 +44,9 @@ if __name__ == '__main__':
         json_file_name = os.path.splitext(json_file_name)[0]
         cypher_file_name = f'Cypher_{json_file_name}.txt'
         cypher_file_path = f'{cypher_folder_path}/Cypher_{json_file_name}.txt'
-
         print("Converting " + json_path + " to Cypher statements")
         cypher_statements = convert_one_json_to_cypher(json_path)
         print("Cypher statements have been generated")
-
         cypher_generator.save_cypher_statements_to_file(cypher_statements, cypher_file_path)
         print(cypher_file_name + " has been saved at " + cypher_folder_path)
 
@@ -55,12 +54,10 @@ if __name__ == '__main__':
         driver.run_cypher_queries(cypher_statements)
         print("Cypher statements in " + cypher_file_name + " has been uploaded to Neo4j database")
 
-
         print(f"{processed_json_files}/{total_json_files} files have been processed")
         print("----------------------------------------------------")
 
         cnt += 1
-        if cnt >= 2:
+        if cnt >= 101:
             break
-
     driver.close()

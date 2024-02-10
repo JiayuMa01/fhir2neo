@@ -135,7 +135,7 @@ def unnest_one_node_properties_to_simple_nodes(nested_properties_dict, parent_no
             else:
                 if current_node.get_isPropertyNode() and (not parent_node_value_isList):
                     current_node.add_node_property({key: value})
-                # If the value of parent node is a list, then we need to create a new node for each dict in the list.
+                # If the value of parent node is an Array, then we need to create a new node for each dict in the Array.
                 elif current_node.get_isPropertyNode() and parent_node_value_isList:
                     child_node_name = f"{parent_node.get_name()}_{key}" if parent_node else key
                     child_node = Node(name=child_node_name, node_type="Property", properties={}, isPropertyNode=True)
