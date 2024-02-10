@@ -43,7 +43,7 @@ relationships within medical information.
    if cnt >= 3: 
    break
    ```
-   This means the program processes the first 2 JSON files, saving time for testing. The estimated processing time for each JSON file, including reading, conversion, and uploading to Neo4j, is less than a minute.
+   This means the program processes the first 2 JSON files, saving time for testing. The average processing time for each JSON file, including reading, conversion, and uploading to Neo4j, is about 118 seconds.
 
 ### About Neo4j Bloom
 
